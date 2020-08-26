@@ -1,8 +1,8 @@
 ## Project 
-A simple react to-do app.
+A simple react todo app.
 
 ## Motivation
-Learn the React basics by building a simple to-do application.
+Learn the React basics by building a simple todo application.
 
 ## Available Scripts
 
