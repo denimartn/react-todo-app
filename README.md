@@ -1,4 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project 
+A simple react to-do app.
+
+## Motivation
+Learn the React basics by building a simple to-do application.
 
 ## Available Scripts
 
