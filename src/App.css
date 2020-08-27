@@ -1,38 +1,93 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Karla&family=Source+Sans+Pro&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: "Karla", sans-serif;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+input {
+  cursor: pointer;
+  outline: none;
+}
+
+.row {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 36px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.row2 {
+  margin: 0 auto;
+  max-width: 300px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#all,
+#active,
+#completed {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 2px solid white;
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+  padding-bottom: 6px;
+  width: 80px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.active {
+  border-bottom: 2px solid #3399ff !important;
+}
+
+.options {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+}
+
+.input-wrapper {
+  margin-top: 24px;
+}
+
+.input-text {
+  border: 1px solid lightgrey;
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 6px;
+  width: 85%;
+}
+
+#add {
+  background: #3399ff;
+  border: none;
+  border-radius: 4px;
   color: white;
+  margin-left: 4px;
+  padding: 8px;
 }
 
-.App-link {
-  color: #61dafb;
+#add:hover {
+  background: #53a4f6;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul {
+  padding: 0;
+  text-align: left;
+}
+
+li {
+  display: flex;
+  margin-bottom: 18px;
+  word-break: break-all;
 }
