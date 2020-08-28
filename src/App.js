@@ -8,6 +8,7 @@ const App = () => {
 
   //set the view
   const [view, setView] = React.useState("");
+
   let todoToRender = todos;
   const onSubmit = (e) => {
     e.preventDefault();
@@ -48,6 +49,14 @@ const App = () => {
 
   const onClickCompleted = () => {
     setView("completed");
+    // remove input section from completed section
+    let elem = document.querySelector(".input-wrapper");
+    elem.parentNode.removeChild(elem);
+  };
+
+  const deleteOne = (todo) => {
+    todoToRender = todoToRender.filter((t) => t.id !== todo.id);
+    setTodos(todoToRender);
   };
 
   if (view === "all") {
@@ -79,7 +88,12 @@ const App = () => {
           </button>
         </div>
         <form onSubmit={onSubmit}>
-          <div className="input-wrapper">
+          <div
+            className="input-wrapper"
+            style={{
+              visibility: view === "completed" ? "hidden" : "visible",
+            }}
+          >
             <input
               className="input-text"
               type="text"
@@ -102,9 +116,31 @@ const App = () => {
                     onChange={() => handleIsDone(todo)}
                   ></input>
                   {todo.value}
+                  <span
+                    style={{
+                      visibility: view === "completed" ? "visible" : "hidden",
+                    }}
+                  >
+                    <button
+                      type="button"
+                      className="delete-one"
+                      onClick={() => deleteOne(todo)}
+                    >
+                      X
+                    </button>
+                  </span>
                 </li>
               ))}
             </ul>
+            <button
+              style={{
+                visibility: view === "completed" ? "visible" : "hidden",
+              }}
+              type="button"
+              className="delete-all"
+            >
+              Delete all
+            </button>
           </div>
         </form>
       </div>

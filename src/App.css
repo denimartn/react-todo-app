@@ -91,3 +91,33 @@ li {
   margin-bottom: 18px;
   word-break: break-all;
 }
+
+span {
+  flex-grow: 1;
+}
+
+.delete-one {
+  border: none;
+  background: white;
+  font-size: 16px;
+  float: right;
+  transform: rotate(90deg);
+}
+
+.delete-all {
+  background: #ef7d7d;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  float: right;
+  padding: 8px;
+}
+
+.delete-all:hover {
+  background: #ec8e8e;
+}
+
+i {
+  color: white;
+  margin-right: 6px;
+}
