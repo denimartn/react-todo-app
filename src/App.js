@@ -49,22 +49,23 @@ const App = () => {
 
   const onClickCompleted = () => {
     setView("completed");
-    // remove input section from completed section
-    let elem = document.querySelector(".input-wrapper");
-    elem.parentNode.removeChild(elem);
   };
 
   const deleteOne = (todo) => {
-    todoToRender = todoToRender.filter((t) => t.id !== todo.id);
+    todoToRender = todos.filter((t) => t.id !== todo.id);
+    setTodos(todoToRender);
+  };
+  const deleteAll = () => {
+    todoToRender = todos.filter((t) => !t.isDone);
     setTodos(todoToRender);
   };
 
   if (view === "all") {
     todoToRender = todos;
   } else if (view === "active") {
-    todoToRender = todoToRender.filter((t) => !t.isDone);
+    todoToRender = todos.filter((t) => !t.isDone);
   } else if (view === "completed") {
-    todoToRender = todoToRender.filter((t) => t.isDone);
+    todoToRender = todos.filter((t) => t.isDone);
   }
 
   return (
@@ -73,27 +74,32 @@ const App = () => {
         <h1>#todo</h1>
         <div className="options">
           <button
-            className="active"
+            className={view === "all" ? "active" : "hide"}
             id="all"
             type="button"
             onClick={onClickAll}
           >
             All
           </button>
-          <button id="active" type="button" onClick={onClickActive}>
+          <button
+            id="active"
+            type="button"
+            onClick={onClickActive}
+            className={view === "active" ? "active" : "hide"}
+          >
             Active
           </button>
-          <button id="completed" type="button" onClick={onClickCompleted}>
+          <button
+            id="completed"
+            className={view === "completed" ? "active" : "hide"}
+            type="button"
+            onClick={onClickCompleted}
+          >
             Completed
           </button>
         </div>
         <form onSubmit={onSubmit}>
-          <div
-            className="input-wrapper"
-            style={{
-              visibility: view === "completed" ? "hidden" : "visible",
-            }}
-          >
+          <div className="input-wrapper">
             <input
               className="input-text"
               type="text"
@@ -138,6 +144,7 @@ const App = () => {
               }}
               type="button"
               className="delete-all"
+              onClick={() => deleteAll()}
             >
               Delete all
             </button>

@@ -121,3 +121,7 @@ i {
   color: white;
   margin-right: 6px;
 }
+
+.hide {
+  border-bottom: 0;
+}
