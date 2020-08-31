@@ -6,9 +6,7 @@ const App = () => {
 
   const [todos, setTodos] = React.useState([]);
 
-  //set the view
-  const [view, setView] = React.useState("");
-
+  const [view, setView] = React.useState("all");
   let todoToRender = todos;
   const onSubmit = (e) => {
     e.preventDefault();
