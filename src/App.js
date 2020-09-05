@@ -1,5 +1,23 @@
 import React from "react";
 import "./App.css";
+import { Task } from "./Task";
+//split into multiple components
+
+//app with title
+// h1 el with title
+//todo form
+//forms from which i get the input values
+//CreateTask
+//create a task for each input
+
+//TaskList
+//render all the tasks
+
+//tree
+//--------------------------App
+//--------------------Form
+//-------------Task List
+//--------Task
 
 const App = () => {
   const [inputValue, setInputValue] = React.useState("");
@@ -113,27 +131,13 @@ const App = () => {
           <div className="list-wrapper">
             <ul>
               {todoToRender.map((todo) => (
-                <li key={todo.id}>
-                  <input
-                    type="checkbox"
-                    checked={todo.isDone}
-                    onChange={() => handleIsDone(todo)}
-                  ></input>
-                  {todo.value}
-                  <span
-                    style={{
-                      visibility: view === "completed" ? "visible" : "hidden",
-                    }}
-                  >
-                    <button
-                      type="button"
-                      className="delete-one"
-                      onClick={() => deleteOne(todo)}
-                    >
-                      X
-                    </button>
-                  </span>
-                </li>
+                <Task
+                  key={todo.id}
+                  todo={todo}
+                  view={view}
+                  handleIsDone={() => handleIsDone(todo)}
+                  deleteOne={() => deleteOne(todo)}
+                />
               ))}
             </ul>
             <button
