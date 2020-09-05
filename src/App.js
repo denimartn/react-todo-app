@@ -41,16 +41,6 @@ const App = () => {
     }
     setTodos(newTodos);
   };
-  const onClickAll = () => {
-    setView("all");
-  };
-  const onClickActive = () => {
-    setView("active");
-  };
-
-  const onClickCompleted = () => {
-    setView("completed");
-  };
 
   const deleteOne = (todo) => {
     todoToRender = todos.filter((t) => t.id !== todo.id);
@@ -73,12 +63,7 @@ const App = () => {
     <main className="row">
       <div className="row2">
         <h1>#todo</h1>
-        <NavBar
-          view={view}
-          onClickAll={onClickAll}
-          onClickActive={onClickActive}
-          onClickCompleted={onClickCompleted}
-        />
+        <NavBar view={view} setView={setView} />
         <TaskForm
           onSubmit={onSubmit}
           inputValue={inputValue}

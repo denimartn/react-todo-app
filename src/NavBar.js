@@ -1,20 +1,30 @@
 import React from "react";
 
 export const NavBar = (props) => {
+  const onClickAll = () => {
+    props.setView("all");
+  };
+  const onClickActive = () => {
+    props.setView("active");
+  };
+
+  const onClickCompleted = () => {
+    props.setView("completed");
+  };
   return (
     <div className="options">
       <button
         className={props.view === "all" ? "active" : "hide"}
         id="all"
         type="button"
-        onClick={props.onClickAll}
+        onClick={onClickAll}
       >
         All
       </button>
       <button
         id="active"
         type="button"
-        onClick={props.onClickActive}
+        onClick={onClickActive}
         className={props.view === "active" ? "active" : "hide"}
       >
         Active
@@ -23,7 +33,7 @@ export const NavBar = (props) => {
         id="completed"
         className={props.view === "completed" ? "active" : "hide"}
         type="button"
-        onClick={props.onClickCompleted}
+        onClick={onClickCompleted}
       >
         Completed
       </button>
