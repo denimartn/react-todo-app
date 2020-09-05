@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { TaskForm } from "./TaskForm";
 import { TaskList } from "./TaskList";
+import { NavBar } from "./NavBar";
 
 const App = () => {
   const [inputValue, setInputValue] = React.useState("");
@@ -72,32 +73,12 @@ const App = () => {
     <main className="row">
       <div className="row2">
         <h1>#todo</h1>
-        <div className="options">
-          <button
-            className={view === "all" ? "active" : "hide"}
-            id="all"
-            type="button"
-            onClick={onClickAll}
-          >
-            All
-          </button>
-          <button
-            id="active"
-            type="button"
-            onClick={onClickActive}
-            className={view === "active" ? "active" : "hide"}
-          >
-            Active
-          </button>
-          <button
-            id="completed"
-            className={view === "completed" ? "active" : "hide"}
-            type="button"
-            onClick={onClickCompleted}
-          >
-            Completed
-          </button>
-        </div>
+        <NavBar
+          view={view}
+          onClickAll={onClickAll}
+          onClickActive={onClickActive}
+          onClickCompleted={onClickCompleted}
+        />
         <TaskForm
           onSubmit={onSubmit}
           inputValue={inputValue}
