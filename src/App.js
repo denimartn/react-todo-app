@@ -1,23 +1,6 @@
 import React from "react";
 import "./App.css";
 import { Task } from "./Task";
-//split into multiple components
-
-//app with title
-// h1 el with title
-//todo form
-//forms from which i get the input values
-//CreateTask
-//create a task for each input
-
-//TaskList
-//render all the tasks
-
-//tree
-//--------------------------App
-//--------------------Form
-//-------------Task List
-//--------Task
 
 const App = () => {
   const [inputValue, setInputValue] = React.useState("");
