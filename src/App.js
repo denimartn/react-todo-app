@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Task } from "./Task";
+import { TaskForm } from "./TaskForm";
 
 const App = () => {
   const [inputValue, setInputValue] = React.useState("");
@@ -97,44 +98,34 @@ const App = () => {
             Completed
           </button>
         </div>
-        <form onSubmit={onSubmit}>
-          <div className="input-wrapper">
-            <input
-              className="input-text"
-              type="text"
-              value={inputValue}
-              onChange={(event) => setInputValue(event.target.value)}
-              placeholder="Type something..."
-            />
-
-            <button id="add" type="submit">
-              Add
-            </button>
-          </div>
-          <div className="list-wrapper">
-            <ul>
-              {todoToRender.map((todo) => (
-                <Task
-                  key={todo.id}
-                  todo={todo}
-                  view={view}
-                  handleIsDone={() => handleIsDone(todo)}
-                  deleteOne={() => deleteOne(todo)}
-                />
-              ))}
-            </ul>
-            <button
-              style={{
-                visibility: view === "completed" ? "visible" : "hidden",
-              }}
-              type="button"
-              className="delete-all"
-              onClick={() => deleteAll()}
-            >
-              Delete all
-            </button>
-          </div>
-        </form>
+        <TaskForm
+          onSubmit={onSubmit}
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+        />
+        <div className="list-wrapper">
+          <ul>
+            {todoToRender.map((todo) => (
+              <Task
+                key={todo.id}
+                todo={todo}
+                view={view}
+                handleIsDone={() => handleIsDone(todo)}
+                deleteOne={() => deleteOne(todo)}
+              />
+            ))}
+          </ul>
+          <button
+            style={{
+              visibility: view === "completed" ? "visible" : "hidden",
+            }}
+            type="button"
+            className="delete-all"
+            onClick={() => deleteAll()}
+          >
+            Delete all
+          </button>
+        </div>
       </div>
     </main>
   );
