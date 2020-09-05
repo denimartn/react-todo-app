@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import { Task } from "./Task";
 import { TaskForm } from "./TaskForm";
+import { TaskList } from "./TaskList";
 
 const App = () => {
   const [inputValue, setInputValue] = React.useState("");
@@ -103,29 +103,22 @@ const App = () => {
           inputValue={inputValue}
           setInputValue={setInputValue}
         />
-        <div className="list-wrapper">
-          <ul>
-            {todoToRender.map((todo) => (
-              <Task
-                key={todo.id}
-                todo={todo}
-                view={view}
-                handleIsDone={() => handleIsDone(todo)}
-                deleteOne={() => deleteOne(todo)}
-              />
-            ))}
-          </ul>
-          <button
-            style={{
-              visibility: view === "completed" ? "visible" : "hidden",
-            }}
-            type="button"
-            className="delete-all"
-            onClick={() => deleteAll()}
-          >
-            Delete all
-          </button>
-        </div>
+        <TaskList
+          todos={todoToRender}
+          view={view}
+          handleIsDone={handleIsDone}
+          deleteOne={deleteOne}
+        />
+        <button
+          style={{
+            visibility: view === "completed" ? "visible" : "hidden",
+          }}
+          type="button"
+          className="delete-all"
+          onClick={() => deleteAll()}
+        >
+          Delete all
+        </button>
       </div>
     </main>
   );
