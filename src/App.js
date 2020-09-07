@@ -5,9 +5,10 @@ import { TaskList } from "./TaskList";
 import { NavBar } from "./NavBar";
 
 const App = () => {
+  window.localStorage.getItem("todos");
   const [inputValue, setInputValue] = React.useState("");
-
-  const [todos, setTodos] = React.useState([]);
+  const savedTodos = JSON.parse(localStorage.getItem("todos"));
+  const [todos, setTodos] = React.useState(savedTodos || []);
 
   const [view, setView] = React.useState("all");
   let todoToRender = todos;
@@ -58,6 +59,16 @@ const App = () => {
   } else if (view === "completed") {
     todoToRender = todos.filter((t) => t.isDone);
   }
+
+  // Save todos on localstorage
+
+  React.useEffect(() => {
+    let str = JSON.stringify(todos);
+    window.localStorage.setItem("todos", str);
+    if (todos) {
+      setTodos(todos);
+    }
+  }, [todos]);
 
   return (
     <main className="row">
