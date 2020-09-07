@@ -16,3 +16,7 @@ Users can:
 - Toggle between three different statuses (All, Active, Completed);
 - Remove one task;
 - Remove all tasks.
+
+## Screenshot
+
+![react-todo-img.jpg](https://i.postimg.cc/3xKYcKWX/react-todo-img.jpg)](https://postimg.cc/rKYBd21s)
