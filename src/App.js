@@ -73,6 +73,9 @@ const App = () => {
   return (
     <main className="row">
       <div className="row2">
+        <p>
+          Made by<a href="https://github.com/denimartn"> Denise</a>
+        </p>
         <h1>#todo</h1>
         <NavBar view={view} setView={setView} />
         <TaskForm
